@@ -1,0 +1,29 @@
+Package: MAHGIx
+Title: Human Gene Catalog Builder from NCBI
+Version: 0.1.0
+Authors@R:
+    c(
+      person("Vinícius", "Borges",
+             email = "vini.borges@marshall.edu",
+             role = c("aut", "cre")),
+      person("Daron", "X",
+             email = "X@email",
+             role = "aut"),
+      person("Alejandro", "Nato",
+             email = "nato@marshall.edu",
+             role = "aut")
+    )
+Description: Builds an integrated human gene catalog using NCBI Gene, RefSeq,
+    and Rutgers genetic maps (GRCh37, GRCh38, T2T).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    data.table,
+    dplyr,
+    tidyr,
+    stringr,
+    R.utils,
+    magrittr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
