@@ -1,6 +1,7 @@
 Package: MAHGIx
-Title: Human Gene Catalog Builder from NCBI
-Version: 0.1.0
+Type: Package
+Title: MAHGIx: Marshall Aggregated Human Gene Index 
+Version: 1.1.0
 Authors@R:
     c(
       person("Vinícius", "Borges",
