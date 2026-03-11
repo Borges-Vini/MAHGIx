@@ -293,7 +293,7 @@ BibTeX:
 
 ```
 @software{borges2026mahgix,
-  author       = {Borges, Vinícius and Weekley, Daron and Nato, Alejandro Q.},
+  author       = {Borges, Vinicius M. and Weekley, Daron and Nato, Alejandro Q.},
   title        = {MAHGIx: Marshall Aggregated Human Gene Index},
   year         = {2026},
   publisher    = {GitHub},
