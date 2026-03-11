@@ -4,7 +4,7 @@
 \alias{filter_trait}
 \title{Filter genes by disease trait}
 \usage{
-filter_trait(dt, trait)
+filter_trait(catalog, trait)
 }
 \description{
 Filter genes by disease trait

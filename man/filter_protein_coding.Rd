@@ -4,7 +4,7 @@
 \alias{filter_protein_coding}
 \title{Keep protein-coding genes}
 \usage{
-filter_protein_coding(dt)
+filter_protein_coding(catalog)
 }
 \description{
 Keep protein-coding genes

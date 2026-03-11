@@ -3,8 +3,7 @@
 #' @importFrom data.table :=
 #' @importFrom data.table setDT
 #' @importFrom data.table uniqueN
-#' @importFrom purrr
-#' stringr
+#' @import stringr
 NULL
 
 parse_genes <- function(x){

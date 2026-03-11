@@ -4,7 +4,7 @@
 \alias{filter_omim}
 \title{Filter genes by OMIM ID}
 \usage{
-filter_omim(dt, omim)
+filter_omim(catalog, omim)
 }
 \description{
 Filter genes by OMIM ID

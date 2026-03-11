@@ -4,7 +4,7 @@
 \alias{build_gwas_annotation}
 \title{Build GWAS gene annotations}
 \usage{
-build_gwas_annotation(gwas, symbol_dict)
+build_gwas_annotation(gwas, symbol_dicionary)
 }
 \description{
 Build GWAS gene annotations

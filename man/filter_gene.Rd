@@ -4,7 +4,7 @@
 \alias{filter_gene}
 \title{Filter catalog by gene symbol}
 \usage{
-filter_gene(dt, gene)
+filter_gene(catalog, gene)
 }
 \description{
 Filter catalog by gene symbol
