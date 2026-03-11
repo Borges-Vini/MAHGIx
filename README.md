@@ -13,25 +13,26 @@ MAHGIx is particularly useful for:
 • educational use in bioinformatics pipelines  
 
 
-------------------------------------------------------------
-Integrated Data Sources
-------------------------------------------------------------
+---
+
+# Integrated Data Sources
 
 MAHGIx integrates annotations from several major genomic resources:
 
-NCBI Gene  
+**NCBI Gene**  
 Core gene metadata including GeneID, symbols, synonyms, gene types, genomic coordinates, and functional descriptions.
 
-GWAS Catalog  
+**GWAS Catalog**  
 Associations between genetic variants and complex traits or diseases.
 
-CTDbase (Comparative Toxicogenomics Database)  
+**CTDbase (Comparative Toxicogenomics Database)**  
 Curated gene–disease relationships based on experimental evidence.
 
-HGNC  
+**HGNC**  
 Official human gene nomenclature and standardized gene symbols.
 
-RefSeq genome assemblies  
+**RefSeq genome assemblies**
+
 Gene coordinates across multiple reference assemblies including:
 
 • GRCh38  
@@ -41,85 +42,103 @@ Gene coordinates across multiple reference assemblies including:
 These resources are harmonized and merged into a single unified gene catalog.
 
 
-------------------------------------------------------------
-Installation
-------------------------------------------------------------
+---
+
+# Installation
 
 Install MAHGIx directly from GitHub:
 
+```r
 remotes::install_github("Borges-Vini/MAHGIx")
+```
 
 Load the package:
 
+```r
 library(MAHGIx)
+```
 
 
-------------------------------------------------------------
-Quick Start
-------------------------------------------------------------
+---
+
+# Quick Start
 
 The quickest way to explore MAHGIx is:
 
+```r
 catalog <- build_gene_catalog()
 
 summary_gene_catalog(catalog)
 
 inspect_gene_catalog(catalog)
+```
 
 Alternatively, run the built-in tutorial:
 
+```r
 hello()
+```
 
-The hello() function runs a complete demonstration of the MAHGIx workflow.
+The `hello()` function runs a complete demonstration of the MAHGIx workflow.
 
 
-------------------------------------------------------------
-Building the Gene Catalog
-------------------------------------------------------------
+---
+
+# Building the Gene Catalog
 
 The core function of the package is:
 
+```r
 build_gene_catalog()
+```
 
 This function automatically performs the following steps:
 
-1. Downloads annotation datasets if they are not already cached
-2. Parses and cleans all source databases
-3. Harmonizes gene identifiers and gene symbols
-4. Integrates GWAS and disease annotations
-5. Builds a unified human gene catalog
+1. Downloads annotation datasets if they are not already cached  
+2. Parses and cleans all source databases  
+3. Harmonizes gene identifiers and gene symbols  
+4. Integrates GWAS and disease annotations  
+5. Builds a unified human gene catalog  
 
 Example:
 
+```r
 catalog <- build_gene_catalog()
+```
 
 The resulting catalog is cached locally for faster reuse in future sessions.
 
 The cache location is determined by:
 
+```r
 tools::R_user_dir("MAHGIx", "cache")
+```
 
 
-------------------------------------------------------------
-Updating the Catalog
-------------------------------------------------------------
+---
+
+# Updating the Catalog
 
 To force a rebuild using the most recent database versions:
 
+```r
 update_gene_catalog()
+```
 
 This deletes the cached catalog and rebuilds it from scratch.
 
 
-------------------------------------------------------------
-Exploring the Gene Catalog
-------------------------------------------------------------
+---
+
+# Exploring the Gene Catalog
 
 MAHGIx provides several functions to inspect and understand the catalog.
 
 Summary overview:
 
+```r
 summary_gene_catalog(catalog)
+```
 
 This displays:
 
@@ -131,7 +150,9 @@ This displays:
 
 Detailed inspection:
 
+```r
 inspect_gene_catalog(catalog)
+```
 
 This function reports:
 
@@ -142,95 +163,113 @@ This function reports:
 • catalog metadata  
 
 
-------------------------------------------------------------
-Structure of the Gene Catalog
-------------------------------------------------------------
+---
+
+# Structure of the Gene Catalog
 
 Each row of the catalog represents a gene and includes multiple annotation fields such as:
 
-GeneID  
+**GeneID**  
 NCBI Gene identifier.
 
-Symbol  
+**Symbol**  
 Official gene symbol.
 
-Synonyms  
+**Synonyms**  
 Alternative gene names.
 
-type_of_gene  
+**type_of_gene**  
 Gene classification (protein-coding, lncRNA, pseudogene, etc.).
 
-GWAS_traits  
+**GWAS_traits**  
 Traits associated with the gene in the GWAS Catalog.
 
-GWAS_SNPs  
+**GWAS_SNPs**  
 List of SNPs associated with the gene.
 
-DiseaseNames_ctdbase  
+**DiseaseNames_ctdbase**  
 Disease annotations from CTDbase.
 
-disease_union  
+**disease_union**  
 Combined disease and trait annotations from multiple sources.
 
-gene_symbol_list  
+**gene_symbol_list**  
 Expanded list of gene symbols and synonyms used for matching.
 
 
-------------------------------------------------------------
-Filtering the Gene Catalog
-------------------------------------------------------------
+---
+
+# Filtering the Gene Catalog
 
 MAHGIx provides filtering utilities to extract subsets of genes relevant to specific analyses.
 
 Filter protein-coding genes:
 
+```r
 pc_catalog <- filter_protein_coding(catalog)
+```
 
 Search by gene symbol:
 
+```r
 filter_gene(catalog, "ACE")
+```
 
-This function supports both official gene symbols and synonyms.
+This function supports both official symbols and synonyms.
 
 Filter by disease or trait:
 
+```r
 filter_trait(catalog, "essential hypertension")
+```
 
 Example:
 
+```r
 htn_genes <- filter_trait(catalog, "hypertension")
+```
 
 Filter by OMIM identifier:
 
+```r
 filter_omim(catalog, "145500")
+```
 
 
-------------------------------------------------------------
-Example Analysis Workflow
-------------------------------------------------------------
+---
+
+# Example Analysis Workflow
 
 The following workflow illustrates a typical gene prioritization analysis using MAHGIx.
 
 Step 1 — Build the catalog
 
+```r
 catalog <- build_gene_catalog()
+```
 
 Step 2 — Restrict to protein-coding genes
 
+```r
 pc_catalog <- filter_protein_coding(catalog)
+```
 
 Step 3 — Identify genes associated with hypertension
 
+```r
 htn <- filter_trait(pc_catalog, "essential hypertension")
+```
 
 Step 4 — Query candidate genes
 
+```r
 filter_gene(htn, "ACE")
+```
 
 
-------------------------------------------------------------
-Typical Use Cases
-------------------------------------------------------------
+---
+
+# Typical Use Cases
 
 MAHGIx can be used for:
 
@@ -241,16 +280,18 @@ MAHGIx can be used for:
 • teaching bioinformatics workflows  
 
 
-------------------------------------------------------------
-Citation
-------------------------------------------------------------
+---
+
+# Citation
 
 Borges VM, Weekley D, Nato A (2026).  
 MAHGIx: An R package for building and exploring an integrated human gene catalog integrating annotations from NCBI Gene, GWAS Catalog, CTDbase, HGNC, and RefSeq assemblies.  
 Available at: https://github.com/Borges-Vini/MAHGIx
 
+
 BibTeX:
 
+```
 @software{borges2026mahgix,
   author       = {Borges, Vinícius and Weekley, Daron and Nato, Alejandro},
   title        = {MAHGIx: An R package for building and exploring an integrated human gene catalog},
@@ -258,6 +299,7 @@ BibTeX:
   publisher    = {GitHub},
   url          = {https://github.com/Borges-Vini/MAHGIx}
 }
+```
 
 
 If you use MAHGIx in academic work, please cite the package and the underlying databases:
@@ -268,16 +310,16 @@ If you use MAHGIx in academic work, please cite the package and the underlying d
 • HGNC  
 
 
-------------------------------------------------------------
-License
-------------------------------------------------------------
+---
+
+# License
 
 MIT License
 
 
-------------------------------------------------------------
-Authors
-------------------------------------------------------------
+---
+
+# Authors
 
 Vinícius Magalhães Borges  
 Daron Weekley  
