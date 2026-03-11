@@ -58,6 +58,10 @@ Load the package:
 library(MAHGIx)
 ```
 
+Downloading sources:
+```r
+download_gene_catalog_data()
+```
 
 ---
 
