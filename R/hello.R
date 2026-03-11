@@ -4,7 +4,6 @@
 #' building the catalog, inspecting it, and applying filters.
 #'
 #' @export
-
 hello <- function(){
 
   cat("\n=============================\n")
