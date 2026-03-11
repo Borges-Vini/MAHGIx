@@ -293,7 +293,7 @@ BibTeX:
 
 ```
 @software{borges2026mahgix,
-  author       = {Borges, Vinícius and Weekley, Daron and Nato, Alejandro},
+  author       = {Borges, Vinícius and Weekley, Daron and Nato, Alejandro Q.},
   title        = {MAHGIx: Marshall Aggregated Human Gene Index},
   year         = {2026},
   publisher    = {GitHub},
@@ -322,6 +322,6 @@ MIT License
 
 Vinícius Magalhães Borges  
 Daron Weekley  
-Alejandro Nato  
+Alejandro Q. Nato Jr.
 
 Marshall University
