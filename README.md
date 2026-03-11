@@ -1,6 +1,6 @@
-############################################################
+##########################
 MAHGIx
-############################################################
+##########################
 
 MAHGIx is an R package designed to build, explore, and query an integrated
 human gene catalog by combining multiple genomic and biomedical databases.
@@ -18,9 +18,9 @@ MAHGIx is particularly useful for:
 • educational use in bioinformatics pipelines
 
 
-############################################################
+##########################
 Integrated Data Sources
-############################################################
+##########################
 
 MAHGIx integrates annotations from the following databases:
 
@@ -46,9 +46,9 @@ MAHGIx integrates annotations from the following databases:
 These resources are merged into a single unified gene catalog.
 
 
-############################################################
+##########################
 Installation
-############################################################
+##########################
 
 Install MAHGIx directly from GitHub:
 
@@ -59,9 +59,9 @@ Load the package:
     library(MAHGIx)
 
 
-############################################################
+##########################
 Quick Start
-############################################################
+##########################
 
 The quickest way to explore the package is:
 
@@ -77,10 +77,9 @@ Alternatively, run the built-in tutorial:
 
 This function runs a complete demonstration of the MAHGIx workflow.
 
-
-############################################################
+##########################
 Building the Gene Catalog
-############################################################
+##########################
 
 The core function of the package is:
 
@@ -106,9 +105,9 @@ The cache location is determined by:
     tools::R_user_dir("MAHGIx", "cache")
 
 
-############################################################
+##########################
 Updating the Catalog
-############################################################
+##########################
 
 To force a rebuild using the latest available data sources:
 
@@ -117,9 +116,9 @@ To force a rebuild using the latest available data sources:
 This deletes the cached catalog and rebuilds it from scratch.
 
 
-############################################################
+##########################
 Exploring the Gene Catalog
-############################################################
+##########################
 
 MAHGIx provides several functions to inspect and understand the catalog.
 
@@ -148,9 +147,9 @@ This function reports:
 • catalog metadata
 
 
-############################################################
+##########################
 Structure of the Gene Catalog
-############################################################
+##########################
 
 Each row represents a gene and includes multiple annotation fields such as:
 
@@ -182,9 +181,9 @@ gene_symbol_list
 Expanded list of gene symbols and synonyms used for matching.
 
 
-############################################################
+##########################
 Filtering the Gene Catalog
-############################################################
+##########################
 
 MAHGIx includes several filtering utilities to help users extract subsets
 of genes relevant to their analysis.
@@ -225,9 +224,9 @@ Filter by OMIM identifier
     filter_omim(catalog, "145500")
 
 
-############################################################
+##########################
 Example Analysis Workflow
-############################################################
+##########################
 
 The following workflow demonstrates a typical gene prioritization
 analysis using MAHGIx.
@@ -248,10 +247,9 @@ Step 4 — Query specific candidate genes:
 
     filter_gene(htn, "ACE")
 
-
-############################################################
+##########################
 Typical Use Cases
-############################################################
+##########################
 
 MAHGIx can be used for:
 
@@ -262,9 +260,9 @@ MAHGIx can be used for:
 • teaching bioinformatics workflows
 
 
-############################################################
+##########################
 Citation
-############################################################
+##########################
 
 If you use MAHGIx in academic work, please cite the package and the
 underlying data resources:
@@ -275,16 +273,15 @@ underlying data resources:
 • HGNC
 
 
-############################################################
+##########################
 License
-############################################################
+##########################
 
 MIT License
 
-
-############################################################
-Author
-############################################################
+##########################
+Authors
+##########################
 
 Vinicius Magalhaes Borges, Daron Weekley and Alejandro Nato.
 Marshall University
