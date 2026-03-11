@@ -285,7 +285,7 @@ MAHGIx can be used for:
 # Citation
 
 Borges VM, Weekley D, Nato A (2026).  
-MAHGIx: An R package for building and exploring an integrated human gene catalog integrating annotations from NCBI Gene, GWAS Catalog, CTDbase, HGNC, and RefSeq assemblies.  
+MAHGIx: Marshall Aggregated Human Gene Index. 
 Available at: https://github.com/Borges-Vini/MAHGIx
 
 
@@ -294,13 +294,12 @@ BibTeX:
 ```
 @software{borges2026mahgix,
   author       = {Borges, Vinícius and Weekley, Daron and Nato, Alejandro},
-  title        = {MAHGIx: An R package for building and exploring an integrated human gene catalog},
+  title        = {MAHGIx: Marshall Aggregated Human Gene Index},
   year         = {2026},
   publisher    = {GitHub},
   url          = {https://github.com/Borges-Vini/MAHGIx}
 }
 ```
-
 
 If you use MAHGIx in academic work, please cite the package and the underlying databases:
 
