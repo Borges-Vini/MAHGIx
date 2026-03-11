@@ -1,4 +1,4 @@
-# MAHGIx
+# MAHGIx: Marshall Aggregated Human Gene Index
 
 MAHGIx is an R package designed to build, explore, and query an integrated human gene catalog by combining multiple genomic and biomedical databases.
 
