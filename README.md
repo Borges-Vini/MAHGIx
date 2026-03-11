@@ -19,7 +19,7 @@ MAHGIx is particularly useful for:
 
 MAHGIx integrates annotations from several major genomic resources:
 
-**NCBI Gene**  
+**NCBI Gene Info, Gene2accessories and Gene Neighbors**  
 Core gene metadata including GeneID, symbols, synonyms, gene types, genomic coordinates, and functional descriptions.
 
 **GWAS Catalog**  
