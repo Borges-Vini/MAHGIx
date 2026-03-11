@@ -11,3 +11,7 @@ utils::globalVariables(c(
   "protein_accession.version",
   "#tax_id", "# feature", "everything"
 ))
+
+.onLoad <- function(libname, pkgname) {
+  data.table::setDTthreads(percent = 50)
+}
