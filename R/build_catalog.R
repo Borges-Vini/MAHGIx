@@ -189,7 +189,7 @@ build_gene_catalog <- function(
   # GWAS
   ############################
 
-  message("Parsing GWAS data...", appendLF = FALSE)
+  message("Parsing GWAS Catalog data...", appendLF = FALSE)
   gwas <- data.table::fread(file.path(path,"gwas.tsv"), sep="\t", quote = "", fill=TRUE)
   data.table::setDT(gwas)
 
@@ -212,14 +212,26 @@ build_gene_catalog <- function(
   rm(gene_neighbors_collapsed); gc();
   catalog_base <- merge(catalog_base, table38_gene, by="GeneID", all.x=TRUE)
   rm(table38_gene); gc();
+  catalog_base$Gene_Size_GRCh38 <- (catalog_base$end_GRCh38 - catalog_base$start_GRCh38) + 1
   catalog_base <- merge(catalog_base, table37_gene, by="GeneID", all.x=TRUE)
   rm(table37_gene); gc();
   catalog_base <- merge(catalog_base, tableT2T_gene, by="GeneID", all.x=TRUE)
   rm(tableT2T_gene); gc();
   catalog_base <- merge(catalog_base, ctdbase_collapsed, by="GeneID", all.x=TRUE)
   rm(ctdbase_collapsed); gc();
+  catalog_base$CTD_nDiseases <- sapply(strsplit(catalog_base$DiseaseNames_ctdbase, "\\|"),function(x){
+    x <- trimws(x)
+    x <- x[x != "" & !is.na(x)]
+    length(unique(x))})
   catalog_base <- merge(catalog_base, gwas_gene, by="GeneID", all.x=TRUE)
   rm(gwas_gene); gc();
+  catalog_base$GWAS_nTraits <- sapply(strsplit(unique(catalog_base$GWAS_Traits), "\\|"),function(x){
+    x <- trimws(x)
+    x <- x[x != "" & !is.na(x)]
+    length(unique(x))})
+  catalog_base$GWAS_nSNPs <- sapply(strsplit(catalog_base$GWAS_SNPs, "\\|"),function(x){
+    x <- x[x != "" & !is.na(x)]
+    length(unique(x))})
 
   catalog_base$gene_symbol_list <- strsplit(
     toupper(paste(
@@ -248,24 +260,13 @@ build_gene_catalog <- function(
     }
   )
 
-  message(" Done!")
+  catalog_base$Total_nTraits <- sapply(strsplit(unique(catalog_base$disease_union), "\\|"),function(x){
+    x <- trimws(x)
+    x <- x[x != "" & !is.na(x)]
+    length(unique(x))})
+  catalog_base$Has_Disease_Annot <- catalog_base$Total_nTraits > 0
 
-
-  ############################
-  # PROTEIN CODING
-  ############################
-
-  message("Filtering the catalog by protein-coding genes...", appendLF = FALSE)
-  catalog_clean <- catalog_base[
-    catalog_base$type_of_gene == "protein-coding" &
-      !grepl("^LOC", catalog_base$Symbol),
-  ]
-
-  stopifnot("GeneID" %in% names(catalog_clean))
-  stopifnot("Symbol" %in% names(catalog_clean))
-  stopifnot(nrow(gene_catalog_clean) > 15000)
-
-  message(" Done!")
+   message(" Done!")
 
 
   ############################
@@ -290,5 +291,5 @@ build_gene_catalog <- function(
 
   message("✅ Gene catalog built and cached.")
 
-  return(gene_catalog)
+  return(catalog_base)
 }

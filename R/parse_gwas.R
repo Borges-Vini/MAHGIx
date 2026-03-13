@@ -45,9 +45,9 @@ build_gwas_annotation <- function(gwas, symbol_dicionary){
   gwas_gene <- gwas_annot[
     ,
     .(
-      GWAS_traits = paste(unique(trait), collapse="|"),
+      GWAS_Traits = paste(unique(trait), collapse="|"),
       GWAS_SNPs   = paste(unique(snp), collapse="|"),
-      n_traits = uniqueN(trait)
+      GWAS_nTraits = uniqueN(trait)
     ),
     by = GeneID
   ]
