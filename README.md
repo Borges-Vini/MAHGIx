@@ -1,4 +1,4 @@
-# MAHGIx
+# MAHGIx: Marshall Aggregated Human Gene Index
 
 MAHGIx is an R package designed to build, explore, and query an integrated human gene catalog by combining multiple genomic and biomedical databases.
 
@@ -19,7 +19,7 @@ MAHGIx is particularly useful for:
 
 MAHGIx integrates annotations from several major genomic resources:
 
-**NCBI Gene**  
+**NCBI Gene Info, Gene2accessories and Gene Neighbors**  
 Core gene metadata including GeneID, symbols, synonyms, gene types, genomic coordinates, and functional descriptions.
 
 **GWAS Catalog**  
@@ -58,6 +58,10 @@ Load the package:
 library(MAHGIx)
 ```
 
+Downloading sources:
+```r
+download_gene_catalog_data()
+```
 
 ---
 
@@ -285,7 +289,7 @@ MAHGIx can be used for:
 # Citation
 
 Borges VM, Weekley D, Nato A (2026).  
-MAHGIx: An R package for building and exploring an integrated human gene catalog integrating annotations from NCBI Gene, GWAS Catalog, CTDbase, HGNC, and RefSeq assemblies.  
+MAHGIx: Marshall Aggregated Human Gene Index. 
 Available at: https://github.com/Borges-Vini/MAHGIx
 
 
@@ -293,14 +297,13 @@ BibTeX:
 
 ```
 @software{borges2026mahgix,
-  author       = {Borges, Vinícius and Weekley, Daron and Nato, Alejandro},
-  title        = {MAHGIx: An R package for building and exploring an integrated human gene catalog},
+  author       = {Borges, Vinicius M. and Weekley, Daron and Nato, Alejandro Q.},
+  title        = {MAHGIx: Marshall Aggregated Human Gene Index},
   year         = {2026},
   publisher    = {GitHub},
   url          = {https://github.com/Borges-Vini/MAHGIx}
 }
 ```
-
 
 If you use MAHGIx in academic work, please cite the package and the underlying databases:
 
@@ -323,6 +326,6 @@ MIT License
 
 Vinícius Magalhães Borges  
 Daron Weekley  
-Alejandro Nato  
+Alejandro Q. Nato Jr.
 
 Marshall University
